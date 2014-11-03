@@ -39,6 +39,12 @@ func Fatalf(format string, a ...interface{}) {
 	os.Exit(1)
 }
 
+func FatalIf(err error) {
+	if err != nil {
+		Fatal(err)
+	}
+}
+
 func PathJoin(a ...string) string {
 	return filepath.Join(a...)
 }
