@@ -57,6 +57,10 @@ func Println(a ...interface{}) (n int, err error) {
 	return fmt.Println(a...)
 }
 
+func Sprintf(format string, a ...interface{}) string {
+	return fmt.Sprintf(format, a...)
+}
+
 func ThisDirN(n int) string {
 	_, filename, _, ok := runtime.Caller(n)
 	if !ok {
