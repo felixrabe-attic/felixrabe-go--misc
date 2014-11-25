@@ -2,6 +2,7 @@ package misc
 
 import (
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -43,6 +44,10 @@ func FatalIf(err error) {
 	if err != nil {
 		Fatal(err)
 	}
+}
+
+func Fprintf(w io.Writer, format string, a ...interface{}) (n int, err error) {
+	return fmt.Fprintf(w, format, a...)
 }
 
 func OpenOrCreate(name string) (file *os.File, err error) {
