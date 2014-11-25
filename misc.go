@@ -45,6 +45,24 @@ func FatalIf(err error) {
 	}
 }
 
+func OpenOrCreate(name string) (file *os.File, err error) {
+	f, err := os.Open(name)
+	if err == nil {
+		// no error, all good
+		return f, nil
+	}
+	if !os.IsNotExist(err) {
+		// err does not indicate that the file does not exist
+		return nil, err
+	}
+	// file does not exist, try to create it
+	f, err = os.Create(name)
+	if err != nil {
+		return nil, err
+	}
+	return f, nil
+}
+
 func PathJoin(a ...string) string {
 	return filepath.Join(a...)
 }
