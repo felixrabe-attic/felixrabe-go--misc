@@ -72,6 +72,10 @@ func PathJoin(a ...string) string {
 	return filepath.Join(a...)
 }
 
+func Print(a ...interface{}) (n int, err error) {
+	return fmt.Print(a...)
+}
+
 func Printf(format string, a ...interface{}) (n int, err error) {
 	return fmt.Printf(format, a...)
 }
