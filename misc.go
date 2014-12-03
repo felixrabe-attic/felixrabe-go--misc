@@ -46,6 +46,10 @@ func FatalIf(err error) {
 	}
 }
 
+func Fprint(w io.Writer, a ...interface{}) (n int, err error) {
+	return fmt.Fprint(w, a...)
+}
+
 func Fprintf(w io.Writer, format string, a ...interface{}) (n int, err error) {
 	return fmt.Fprintf(w, format, a...)
 }
